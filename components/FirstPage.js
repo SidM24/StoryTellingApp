@@ -7,7 +7,7 @@ import image from '../Images/FirstPage_bg.png'
 import user_logo from '../Images/user_logo.png'
 import rec_img from '../Images/recommendations.png'
 import explore_img from '../Images/explore1.png'
-const FirstPage = () => {
+const FirstPage = (props) => {
     const [Drop, setDrop] = useState(false);
     return (
         <View>
@@ -16,10 +16,10 @@ const FirstPage = () => {
                     <Pressable onPress={() => setDrop(!Drop)} style={{ marginRight: 20, marginLeft: 'auto', marginTop: 20, zIndex: 1 }}>
                         <Image source={user_logo} style={{ borderRadius: 150, height: 40, width: 40 }} ></Image>
                     </Pressable>
-                    <TouchableOpacity onPress={() => alert("Logout")} style={{ zIndex: 1, position: 'absolute', marginLeft: 300, marginTop: 64, display: Drop ? "" : 'none' }}>
+                    <TouchableOpacity onPress={() => props.navigation.navigate('Login')} style={{ zIndex: 1, position: 'absolute', marginLeft: 300, marginTop: 64, display: Drop ? "" : 'none' }}>
                         <Text style={{ color: 'white', paddingLeft: 7, paddingRight: 7, paddingTop: 5, paddingBottom: 5, width: 80, textAlign: 'center' }}>Logout</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity onPress={() => alert("Settings")} style={{ zIndex: 1, position: 'absolute', marginLeft: 300, marginTop: 94, display: Drop ? "" : 'none' }}>
+                    <TouchableOpacity onPress={() => props.navigation.navigate('Profile')} style={{ zIndex: 1, position: 'absolute', marginLeft: 300, marginTop: 94, display: Drop ? "" : 'none' }}>
                         <Text style={{ color: 'white', paddingLeft: 7, paddingRight: 7, paddingTop: 5, paddingBottom: 5, width: 80, textAlign: 'center' }}>Setting</Text>
                     </TouchableOpacity>
                     <Text style={{ fontSize: 25, color: 'white', position: 'relative', marginTop: -35, width: "100%", textAlign: 'center', paddingRight: 40, fontFamily: 'monospace' }}>Welcome Siddharth</Text>
@@ -32,13 +32,13 @@ const FirstPage = () => {
                     </View>
                     <View style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-evenly', alignItems: 'center' }}>
                         <View style={{ height: 190, width: 150, marginTop: 5, borderRadius: 20, padding: 10, paddingBottom: 12 }}>
-                            <Pressable style={{ margin: 0, padding: 0 }} onPress={() => alert("Explore")}>
+                            <Pressable style={{ margin: 0, padding: 0 }} onPress={() => props.navigation.navigate('ExploreStory')}>
                                 <Image source={rec_img} resizeMode='contain' style={{ height: "90%", width: '100%', marginTop: 0 }}></Image>
                             </Pressable>
                             <Text style={{ textAlign: 'center', fontSize: 15, fontWeight: 'bold', color: 'white' }}>Explore Stories</Text>
                         </View>
                         <View style={{ height: 190, width: 150, marginTop: 5, borderRadius: 20, padding: 10, paddingBottom: 12 }}>
-                            <Pressable style={{ margin: 0, padding: 0 }} onPress={() => alert("Recommend")}>
+                            <Pressable style={{ margin: 0, padding: 0 }} onPress={() => props.navigation.navigate('StoryDisplay', { story: 'Recommend' })}>
                                 <Image source={explore_img} resizeMode='contain' style={{ height: "82%", width: '100%', borderRadius: 20, marginTop: 4, marginBottom: 10, zIndex: 1 }}></Image>
                             </Pressable>
                             <Text style={{ textAlign: 'center', fontSize: 15, fontWeight: 'bold', color: 'white' }}>Recommend Story</Text>

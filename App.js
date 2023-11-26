@@ -10,6 +10,9 @@ import Home from './components/Home'
 import Login from './components/Login';
 import SignUp from './components/SignUp';
 import FirstPage from './components/FirstPage';
+import StoryDisplay from './components/StoryDisplay';
+import ExploreStory from './components/ExploreStory';
+import Profile from './components/Profile';
 
 const Stack = createNativeStackNavigator();
 
@@ -21,6 +24,9 @@ const App = () => {
         <Stack.Screen name='Login' component={Login} />
         <Stack.Screen name='SignUp' component={SignUp} />
         <Stack.Screen name='FirstPage' component={FirstPage} />
+        <Stack.Screen name='StoryDisplay' component={StoryDisplay} />
+        <Stack.Screen name='ExploreStory' component={ExploreStory} />
+        <Stack.Screen name='Profile' component={Profile} />
       </Stack.Navigator>
     </NavigationContainer>
   );
